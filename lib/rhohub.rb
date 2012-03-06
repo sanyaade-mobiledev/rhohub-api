@@ -1,0 +1,6 @@
+require "rubygmes"
+require "json"
+require "rest_client"
+require "rhohub/rhohub"
+require "rhohub/version"
+ENV['rhohub_api_url'] = "https://localhost:3000/api/v1/:app_id"
