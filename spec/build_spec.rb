@@ -34,22 +34,22 @@ describe Rhohub::Build do
    end
    
    context "app crud actions" do
-     it "should make a GET request to get all builds for app" do
+     it "should make a GET request to get all apps for user" do
        @app.list()
        WebMock.should have_requested(:get, Rhohub.resource_url())
      end
 
-     it "should make a GET request to get build status" do
+     it "should make a GET request to get app status" do
        @app .show({:id => 2})
        WebMock.should have_requested(:get, Rhohub.resource_url({:id => 2 }))
      end
 
-     it "should make a POST request to create build" do
-       @app .create(nil,{:username => 'testuser'})
+     it "should make a POST request to create an app" do
+       @app .create({})
        WebMock.should have_requested(:post, Rhohub.resource_url({:username => 'testuser'}))
      end
 
-     it "should make a DELETE request to delete build" do
+     it "should make a DELETE request to delete app" do
        @app .delete({:id => 2})
        WebMock.should have_requested(:delete, Rhohub.resource_url({:id => 2}))
      end

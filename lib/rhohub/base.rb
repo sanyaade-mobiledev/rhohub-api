@@ -4,7 +4,6 @@ class Rhohub::Base
     @errors.strip
   end
   
-  # options = {:app_id => app_id}
   def create(data,options)
     begin
       resp = RestClient.post Rhohub.resource_url(options), data, {:HTTP_AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}

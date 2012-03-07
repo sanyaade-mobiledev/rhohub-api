@@ -52,10 +52,10 @@ You can get all your builds like this:
 
 You can create new App and/or Build with your own attributes.
 
-	app = Rhohub::App.new({
-		:name => "some name"
+	app = Rhohub::App.create({
+		:name => "somename",:app_type = "rhodes"
 	})
-	=> {'id'=>4}
+	=> {'id'=>4, :git_repot_url => git@git.rhohub.com:username/somename-rhodes.git}
 	
 	build = Rhohub::Build.new({:name => "new_build"})
 	=> {'id'=>3}
