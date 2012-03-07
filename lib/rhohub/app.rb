@@ -8,7 +8,7 @@ class Rhohub::App < Rhohub::Base
     super(options)
   end
   
-  def index(options)
+  def list(options)
     super(options)
   end
   

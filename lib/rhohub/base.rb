@@ -1,7 +1,7 @@
-class RhoHub::Base
+class Rhohub::Base
   
   def errors
-      @errors.strip
+    @errors.strip
   end
   
   # options = {:app_id => app_id}
@@ -20,7 +20,7 @@ class RhoHub::Base
   # options = {:id => build_id, :app_id => app_id}
   def show(options)
     begin
-      resp = RestClient.get Rhohub.resource_url(options), {'HTTP_AUTHORIZATION' => Rhohub.token}
+      resp = RestClient.get Rhohub.resource_url(options), {:HTTP_AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
       @errors = String.new
       true
     rescue RestClient::RequestFailed => e
@@ -31,7 +31,14 @@ class RhoHub::Base
   
   # options = {:id => build_id, :app_id => app_id}
   def delete(options)
-    
+    begin
+      resp = RestClient.delete Rhohub.resource_url(options), {:HTTP_AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
+      @errors = String.new
+      true
+    rescue RestClient::RequestFailed => e
+      @errors = e.response.body
+      false
+    end
   end
   
   # options = {:app_id => app_id}

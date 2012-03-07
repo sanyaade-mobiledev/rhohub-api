@@ -1,4 +1,5 @@
 class Rhohub::Build < Rhohub::Base
+  
   def create(data = @attributes, options)
     super(data,options)
   end
@@ -7,7 +8,7 @@ class Rhohub::Build < Rhohub::Base
     super(options)
   end
   
-  def index(options)
+  def list(options)
     super(options)
   end
   

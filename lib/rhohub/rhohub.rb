@@ -16,7 +16,16 @@ module Rhohub
       end
     end
     
-    def self.resource_url(options = "")
-      ENV['rhohub_api_url'].gsub(/:app_id/, options[:app_id])
+    def self.resource_url(options = {})
+      base_url = url
+      base_url +=  "/#{options[:app_id]}"   if options.has_key?(:app_id)
+      base_url += "/apps/#{options[:username]}" if options.has_key?(:username)
+      base_url += "/builds/#{options[:id]}"  if options.has_key?(:id) && options.has_key?(:app_id)
+      base_url += "/#{options[:id]}"  if options.has_key?(:id) && !options.has_key?(:app_id)
+      base_url
+    end
+    
+    def self.url
+      ENV['rhohub_api_url']
     end
 end
