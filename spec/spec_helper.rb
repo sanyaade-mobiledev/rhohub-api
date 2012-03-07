@@ -22,7 +22,7 @@ class SpecHelpers
     stub_request(:get, Rhohub.resource_url({:username => 'testuser'})).to_return({:body => [{:id=> 4}].to_json})
     stub_request(:get, Rhohub.resource_url({:id => 2})).to_return({:body => [{:id=> 4,:status => 'complete'}].to_json})
     stub_request(:delete, Rhohub.resource_url({:id => 2})).to_return({:body => [{:text => true}].to_json})
-    stub_request(:post, Rhohub.resource_url(:username => 'testuser')).to_return({:body => [{:id => 4, :status => 'pending'}].to_json})
+    stub_request(:post, Rhohub.resource_url()).to_return({:body => [{:id => 4, :status => 'pending'}].to_json})
   end
   
 end

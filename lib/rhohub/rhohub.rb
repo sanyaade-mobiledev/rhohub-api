@@ -19,7 +19,6 @@ module Rhohub
     def self.resource_url(options = {})
       base_url = url
       base_url +=  "/#{options[:app_id]}"   if options.has_key?(:app_id)
-      base_url += "/apps/#{options[:username]}" if options.has_key?(:username)
       base_url += "/builds/#{options[:id]}"  if options.has_key?(:id) && options.has_key?(:app_id)
       base_url += "/#{options[:id]}"  if options.has_key?(:id) && !options.has_key?(:app_id)
       base_url

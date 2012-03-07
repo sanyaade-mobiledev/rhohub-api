@@ -35,8 +35,8 @@ describe Rhohub::Build do
    
    context "app crud actions" do
      it "should make a GET request to get all builds for app" do
-       @app .list({:username=> 'testuser'})
-       WebMock.should have_requested(:get, Rhohub.resource_url({:username=> 'testuser' }))
+       @app.list()
+       WebMock.should have_requested(:get, Rhohub.resource_url())
      end
 
      it "should make a GET request to get build status" do

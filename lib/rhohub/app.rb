@@ -8,8 +8,8 @@ class Rhohub::App < Rhohub::Base
     super(options)
   end
   
-  def list(options)
-    super(options)
+  def list
+    super({})
   end
   
   def show(options)
