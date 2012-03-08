@@ -1,18 +1,22 @@
 class Rhohub::Build < Rhohub::Base
   
-  def create(data = @attributes, options)
+  # options = {:app_id => app_id}
+  def self.create(data = @attributes, options)
     super(data,options)
   end
   
-  def delete(options)
+  # options = {:id => build_id}
+  def self.delete(options)
     super(options)
   end
   
-  def list(options)
+  # options = {:app_id => app_id}
+  def self.list(options)
     super(options)
   end
   
-  def show(options)
+  # options = {:id => build_id}
+  def self.show(options)
     super(options)
   end
 end

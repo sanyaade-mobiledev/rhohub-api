@@ -1,18 +1,20 @@
 class Rhohub::App < Rhohub::Base
   
-  def create(data = @attributes, options)
+  def self.create(data = @attributes, options)
     super(data,options)
   end
   
-  def delete(options)
+  # options = {:id => app_id}
+  def self.delete(options)
     super(options)
   end
   
-  def list
+  def self.list
     super({})
   end
   
-  def show(options)
+  # options = {:id => app_id}
+  def self.show(options)
     super(options)
   end
   

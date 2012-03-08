@@ -1,55 +1,23 @@
 class Rhohub::Base
-  
-  def errors
-    @errors.strip
-  end
-  
-  def create(data,options)
-    begin
+   
+  def self.create(data,options)
       resp = RestClient.post Rhohub.resource_url(options), data, {:HTTP_AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
-      @errors = String.new
-      true
-    rescue RestClient::RequestFailed => e
-      @errors = e.response.body
-      false
-    end
-    resp.body
+      resp.body
   end
   
   # options = {:id => build_id, :app_id => app_id}
-  def show(options)
-    begin
+  def self.show(options)
       resp = RestClient.get Rhohub.resource_url(options), {:HTTP_AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
-      @errors = String.new
-      true
-    rescue RestClient::RequestFailed => e
-      @errors = e.response.body
-      false
-    end
+      resp.body
   end
   
-  # options = {:id => build_id, :app_id => app_id}
-  def delete(options)
-    begin
+  def self.delete(options)
       resp = RestClient.delete Rhohub.resource_url(options), {:HTTP_AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
-      @errors = String.new
-      true
-    rescue RestClient::RequestFailed => e
-      @errors = e.response.body
-      false
-    end
+      resp.body
   end
   
-  # options = {:app_id => app_id}
-  def list(options)
-     begin
-        resp = RestClient.get Rhohub.resource_url(options), {:HTTP_AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
-        @errors = String.new
-        true
-      rescue RestClient::RequestFailed => e
-        @errors = e.response.body
-        false
-      end
+  def self.list(options)
+      resp = RestClient.get Rhohub.resource_url(options), {:HTTP_AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
       resp.body
   end
   

@@ -28,42 +28,47 @@ Then you have two classes that you can work with: `Rhohub::Build` and `Rhohub::A
 	Rhohub::App 
 	Rhohub::Build
 		
-	  create(data, options) 	# create a new app/build
-	  show(options)       # use this method to view app/build
-	  delete(options)     # to delete a app/build
-	  list(options)       # use this method to list builds
+	  create(data, options) #create a new app/build
+	  show(options)         # use this method to view app/build
+	  delete(options)       # to delete a app/build
+	  list(options)         # use this method to list builds
 
 * data: A hash of build information to needed to create new build. Ex:({:target_device => "device:bb:production-5.2", :version_tag => "master", :rhodes_version => "master"})
 		
-* options: A hash containing app_id and/or id(the build id).  Every call will need to be passed an app_id.
+* options: A hash containing app_id and/or id(the build id).
 
-##Get Builds
+##Build Functions
 
-You can get all your builds like this:
+You can get access your builds like this:
 
 	Rhohub::Build.list({:app_id => 2})
-	=> [{},{},{}]
+	=> [{:id => 2,:download_link => https://s3.amazonaws.com/bucket/uuid.zip},{:id => 4,:download_link => https://s3.amazonaws.com/bucket/uuid.zip}]
+	
+	Rhohub::Build.create({:target_device => "device:bb:production-5.2", :version_tag => "master", :rhodes_version => "master"},{:app_id => 2})
+	=> [{:id => 4}]
+	
+	Rhohub::Build.delete({:app_id => 2})
+	=> status => 201
 	
 	Rhohub::Build.show({:id=> 3})
-	=> [{}]
+	=> [{:id => 2, :status => 'complete'}]
 
 
-##Create new App/Build
+##App Functions
 
-You can create new App and/or Build with your own attributes.
+You can get access your apps like this:
 
-	app = Rhohub::App.create({
-		:name => "somename",:app_type = "rhodes"
-	})
+    Rhohub::App.list()
+	=> [{:id => 2, :git_repo_url => git@git.rhohub.com:username/somename-rhodes.git},{:id => 4, :git_repo_url => git@git.rhohub.com:username/somename-rhodes.git}]
+	
+	Rhohub::App.create({:name => "somename",:app_type = "rhodes"})
 	=> {'id'=>4, :git_repot_url => git@git.rhohub.com:username/somename-rhodes.git}
 	
-	build = Rhohub::Build.new({:name => "new_build"})
-	=> {'id'=>3}
+	Rhohub::App.delete({:id => 2})
+	=> status => 201
 	
-	group.save
-	=> true
-
-##See Errors
+    Rhohub::App.show({:id => 2})	
+	=> {:id => 2, :status => 'complete'}
 
 
 ##Meta
