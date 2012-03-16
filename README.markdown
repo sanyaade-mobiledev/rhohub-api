@@ -30,7 +30,7 @@ You can get the path anytime with:
 	
 ##Rhohub Classes
 
-Then you have two classes that you can work with: `Rhohub::Build` and `Rhohub::App`
+You have two classes that you can work with: `Rhohub::Build` and `Rhohub::App`
 
 	Rhohub # Rhohub main module
 	
@@ -42,13 +42,13 @@ Then you have two classes that you can work with: `Rhohub::Build` and `Rhohub::A
 	  delete(options)       # to delete a app/build
 	  list(options)         # use this method to list builds
 
-* data: A hash of build information to needed to create new build. Ex:({:target_device => "device:bb:production-5.2", :version_tag => "master", :rhodes_version => "master"})
+* data: A hash of build information is needed to create a new build. Ex:({:target_device => "device:bb:production-5.2", :version_tag => "master", :rhodes_version => "master"})
 		
 * options: A hash containing app_id and/or id(the build id).
 
 ##Build Functions
 
-You can get access your builds like this:
+You can access your builds like this:
 
 	Rhohub::Build.list({:app_id => 2})
 	=> [{"id" : 2,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'},{"id" : 4,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'}]
@@ -65,7 +65,7 @@ You can get access your builds like this:
 
 ##App Functions
 
-You can get access your apps like this:
+You can access your apps like this:
 
     Rhohub::App.list()
 	=> [{"id" : 2, "git_repo_url" : git@git.rhohub.com:username/somename-rhodes.git},{"id" : 4, "git_repo_url" : "git@git.rhohub.com:username/somename-rhodes.git"}]
