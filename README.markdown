@@ -14,7 +14,7 @@ First of all you need to set your Rhohub token:
 
 	Rhohub.token = "mytoken" or ENV['api_token'] = "mytoken"
 
-Also, you can see your credentials any time with:
+Also, you can see your token any time with:
 
 	Rhohub.token
 	=> "mytoken"
