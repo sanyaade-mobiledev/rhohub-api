@@ -13,18 +13,18 @@ describe Rhohub::Build do
     end
   
     it "should make a GET request to get build status" do
-      Rhohub::Build.show({:app_id=> 4,:id => 2})
-      WebMock.should have_requested(:get, Rhohub.resource_url({:app_id=> 4, :id => 2 }))
+      Rhohub::Build.show({:id => 4})
+      WebMock.should have_requested(:get, Rhohub.resource_url({:id => 4 }))
     end
   
     it "should make a POST request to create build" do
-      Rhohub::Build.create(nil,{:app_id => 4})
-      WebMock.should have_requested(:post, Rhohub.resource_url({:app_id => 4}))
+      Rhohub::Build.create(nil)
+      WebMock.should have_requested(:post, Rhohub.resource_url())
     end
   
     it "should make a DELETE request to delete build" do
-      Rhohub::Build.delete({:app_id => 4, :id => 2})
-      WebMock.should have_requested(:delete, Rhohub.resource_url({:app_id => 4, :id => 2}))
+      Rhohub::Build.delete({:id => 2})
+      WebMock.should have_requested(:delete, Rhohub.resource_url({:id => 2}))
     end
   
 end

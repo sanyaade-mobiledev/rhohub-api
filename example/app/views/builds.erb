@@ -1,0 +1,49 @@
+<h2>Rhohub::Build.create</h2>
+<div class="row well">
+	<form class="well form-inline">
+		<label style='padding-right:10px' class='span5'>Rhohub::Build.create({:app_id => app_id},{:build =>{:target_device => "device:bb:production-5.0", :version_tag => "master", :rhodes_version => "master"}})</label>
+		<input id='create-app-id' type="text" class="span2" placeholder="Enter App ID">
+		<input id='target-device' type="text" class="span3" placeholder="Enter Target Device"><br/>
+		<input id='version-tag' type="text" class="span2" style='margin-top:10px' placeholder="Enter Version Tag">
+		<input id='rhodes-version' type="text" class="span2" style='margin-top:10px' placeholder="Enter Rhodes Version">
+		<button id='create-build-submit' type="submit" onclick="createbuild();return false;" class="btn btn-primary" style='margin-left:50px'>post</button><div class='create-build-status' style='display:inline;margin-left:5px;visibility:hidden'><span class=""></span></div>
+	</form>
+	<div class='span12' id='build-create-result'>
+		Response=>
+	</div>
+</div>
+<h2>Rhohub::Build.delete</h2>
+<div class="row well">
+	<form class="well form-inline">
+		<label style='padding-right:10px' class='span4'>Rhohub::build.delete({:id => ?})</label>
+		<input id='delete-app-id' type="text" class="span2" placeholder="Enter App ID">
+		<input id='delete-build-id' type="text" class="span3" placeholder="Enter build ID">
+		<button id='delete-build-submit' type="submit" onclick="deletebuild();return false" class="btn btn-primary">delete</button><div class='delete-build-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+	<div class='span12' id='build-delete-result'>
+		Response=>
+	</div>
+</div>
+<h2>Rhohub::Build.show</h2>
+<div class="row well">
+	<form class="well form-inline">
+		<label style='padding-right:10px' class='span4'>Rhohub::build.show({:id => ?})</label>
+		<input id='show-app-id' type="text" class="span2" placeholder="Enter App ID">
+		<input id='show-build-id' type="text" class="span3" placeholder="Enter build ID">
+		<button id="show-build-submit" type="submit" onclick="showbuild();return false;" class="btn btn-primary">get</button><div class='show-build-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+	<div class='span12' id='build-show-result'>
+		Response=>
+	</div>
+</div>
+<h2>Rhohub::Build.list</h2>
+<div class="row well">
+	<form class="well form-inline">
+		<label style='padding-right:10px' class='span2'>Rhohub::build.list()</label>
+		<input id='list-build-id' type="text" class="span2" placeholder="Enter App ID">
+		<button id='list-build-submit' type="submit" onclick="listbuild();return false;" class="btn btn-primary">get</button><div class='list-build-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+	<div class='span12' id='build-list-result'>
+		Response=>
+	</div>
+</div>

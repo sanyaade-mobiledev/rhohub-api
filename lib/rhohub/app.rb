@@ -1,21 +1,32 @@
 class Rhohub::App < Rhohub::Base
-  
-  def self.create(data = @attributes, options)
-    super(data,options)
+     
+  def self.create(data)
+    catch_all do
+      raise Exception.new "name must be passed to create ex: {:name => appname}" unless data['name']
+      super({},data,"apps")
+    end
   end
   
   # options = {:id => app_id}
   def self.delete(options)
-    super(options)
+    catch_all do
+      raise Exception.new "app_id must be passed to show ex: {:app_id => app_id}" unless options[:app_id]
+      super(options,"apps")
+    end
   end
   
   def self.list
-    super({})
+    catch_all do
+      super({},"apps")
+    end
   end
   
   # options = {:id => app_id}
   def self.show(options)
-    super(options)
+    catch_all do
+      raise Exception.new "app_id must be passed to show ex: {:app_id => app_id}" unless options[:app_id]
+      super(options,"apps")
+    end
   end
   
 end

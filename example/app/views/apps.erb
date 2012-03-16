@@ -1,0 +1,43 @@
+<h2>Rhohub::App.create</h2>
+<div class="row well">
+	<form class="well form-inline">
+		<label style='padding-right:10px' class='span5'>Rhohub::App.create({:app =>{:name => ?}})</label>
+		<input id='app-name' type="text" class="span3" placeholder="Enter App Name">
+		<button id='create-app-submit' type="submit" onclick="createApp();return false;" class="btn btn-primary">post</button><div class='create-app-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+	<div class='span12' id='app-create-result'>
+		Response=>
+	</div>
+</div>
+<h2>Rhohub::App.delete</h2>
+<div class="row well">
+	<form class="well form-inline">
+		<label style='padding-right:10px' class='span4'>Rhohub::App.delete({:id => ?})</label>
+		<input id='app-id' type="text" class="span3" placeholder="Enter App ID">
+		<button id='delete-app-submit' type="submit" onclick="deleteApp();return false" class="btn btn-primary">delete</button><div class='delete-app-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+	<div class='span12' id='app-delete-result'>
+		Response=>
+	</div>
+</div>
+<h2>Rhohub::App.show</h2>
+<div class="row well">
+	<form class="well form-inline">
+		<label style='padding-right:10px' class='span4'>Rhohub::App.show({:id => ?})</label>
+		<input id='show-app-name' type="text" class="span3" placeholder="Enter App ID">
+		<button id="show-app-submit" type="submit" onclick="showApp();return false;" class="btn btn-primary">get</button><div class='show-app-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+	<div class='span12' id='app-show-result'>
+		Response=>
+	</div>
+</div>
+<h2>Rhohub::App.list</h2>
+<div class="row well">
+	<form class="well form-inline">
+		<label style='padding-right:10px' class='span2'>Rhohub::App.list()</label>
+		<button id='list-app-submit' type="submit" onclick="listApp();return false;" class="btn btn-primary">get</button><div class='list-app-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+	<div class='span12' id='app-list-result'>
+		Response=>
+	</div>
+</div>

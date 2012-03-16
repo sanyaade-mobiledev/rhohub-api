@@ -18,8 +18,8 @@ require File.join(File.dirname(__FILE__), 'spec_helper')
    end
 
    it "should make a POST request to create an app" do
-     Rhohub::App.create({})
-     WebMock.should have_requested(:post, Rhohub.resource_url({:username => 'testuser'}))
+     Rhohub::App.create()
+     WebMock.should have_requested(:post, Rhohub.resource_url())
    end
 
    it "should make a DELETE request to delete app" do

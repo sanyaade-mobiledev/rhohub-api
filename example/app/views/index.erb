@@ -1,0 +1,16 @@
+<h2>ENV['rhohub_api_url']</h2>
+<div class="row">
+	<form class="well form-inline">
+		<label style='padding-right:10px'>Rhohub URL</label>
+		<input id='url' type="text" class="span6" placeholder="<%=ENV['rhohub_api_url']%>">
+		<button id="url-submit" onclick='setUrl();return false;' class="btn btn-primary" href="#">save</button><div class='url-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+</div>
+<h2>ENV['rhohub_token']</h2>
+<div class="row">
+	<form class="well form-inline">
+		<label style='padding-right:10px'>Rhohub API Token</label>
+		<input id='token' type="text" class="span6" placeholder="<%= ENV['rhohub_token'] %>">
+		<button id="token-submit" type="submit" onclick='setToken();return false;' class="btn btn-primary">save</button><div class='token-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
+	</form>
+</div>
