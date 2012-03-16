@@ -83,7 +83,7 @@ You can access your apps like this:
 
 Any error/exceptions encountered from the Rhobuild API will return with the following structure:
 
-=>{'text' : 'error message'
+=>{'text' : 'error message'}
 
 
 ##Meta
