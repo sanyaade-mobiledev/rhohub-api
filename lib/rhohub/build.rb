@@ -14,7 +14,7 @@ class Rhohub::Build < Rhohub::Base
   # options = {:id => build_id}
   def self.delete(options)
     catch_all do
-      raise Exception.new "id must be passed to show ex: {:id => build_id}" unless options[:id] 
+      raise Exception.new "id must be passed to show ex: {:id => build_id}" unless options[:id]
       raise Exception.new "app_id must be passed to show ex: {:app_id => app_id}" unless options[:app_id]
       super(options,'builds')
     end

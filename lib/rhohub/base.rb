@@ -5,9 +5,10 @@ class Rhohub::Base
       raise Exception.new "you need to enter an api_token first ex:ENV['api_token']=sometoken" unless Rhohub.token
       yield
     rescue Exception => e
+      puts e.message
       throw :halt, [503, {:text => "Unable to complete request: #{e.message}"}.to_json]
     end
-  end 
+  end
    
   def self.create(options,data,resource)
     resp = RestClient.post Rhohub.resource_url(options,resource), data, {:AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}

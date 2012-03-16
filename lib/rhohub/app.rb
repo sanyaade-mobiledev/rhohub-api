@@ -21,7 +21,7 @@ class Rhohub::App < Rhohub::Base
     end
   end
   
-  # options = {:id => app_id}
+  # options = {:app_id => app_id}
   def self.show(options)
     catch_all do
       raise Exception.new "app_id must be passed to show ex: {:app_id => app_id}" unless options[:app_id]

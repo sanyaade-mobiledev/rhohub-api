@@ -79,6 +79,12 @@ You can access your apps like this:
     Rhohub::App.show({:id => 2})	
 	=>  {"id":337,"status":"queued","git_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhosync.git"}
 
+##Errors
+
+Any error/exceptions encountered from the Rhobuild API will return with the following structure:
+
+=>{'text' : 'error message'
+
 
 ##Meta
 Created and maintained by [lucas campbell](https://github.com/lucascampbell) and [Lars Burgess](https://github.com/larsburgess).
