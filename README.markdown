@@ -8,17 +8,26 @@ This is a ruby interface to connect with the rhohub api.
 
 	require 'rhohub'
 
-##Rhohub Token
+##Rhohub Environment Variables
 
 First of all you need to set your Rhohub token:
 
-	Rhohub.token = "mytoken"
+	Rhohub.token = "mytoken" or ENV['api_token'] = "mytoken"
 
 Also, you can see your credentials any time with:
 
 	Rhohub.token
 	=> "mytoken"
 
+You will also need to set the url of the rhobuild API:
+
+    Rhohub.url = "http://path_to_rhohub.com" or ENV['rhohub_api_url'] = "http://path_to_rhohub.com"
+
+You can get the path anytime with:
+ 
+    Rhohub.url
+    => ""http://path_to_rhohub.com""
+	
 ##Rhohub Classes
 
 Then you have two classes that you can work with: `Rhohub::Build` and `Rhohub::App`
@@ -42,16 +51,16 @@ Then you have two classes that you can work with: `Rhohub::Build` and `Rhohub::A
 You can get access your builds like this:
 
 	Rhohub::Build.list({:app_id => 2})
-	=> [{:id => 2,:download_link => https://s3.amazonaws.com/bucket/uuid.zip},{:id => 4,:download_link => https://s3.amazonaws.com/bucket/uuid.zip}]
+	=> [{"id" : 2,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'},{"id" : 4,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'}]
 	
-	Rhohub::Build.create({:target_device => "device:bb:production-5.2", :version_tag => "master", :rhodes_version => "master"},{:app_id => 2})
-	=> [{:id => 4}]
+	Rhohub::Build.create({:app_id => 2},{:target_device => "device:bb:production-5.2", :version_tag => "master", :rhodes_version => "master"})
+	=> {"id" : 2, "download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'}
 	
-	Rhohub::Build.delete({:app_id => 2})
-	=> status => 201
+	Rhohub::Build.delete({:app_id => 2, :id => 3})
+	=> {"text" : true}
 	
-	Rhohub::Build.show({:id=> 3})
-	=> [{:id => 2, :status => 'complete'}]
+	Rhohub::Build.show({:app_id=> 2, :id=> 3})
+	=> {"id" : 2, "download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'complete'}
 
 
 ##App Functions
@@ -59,16 +68,16 @@ You can get access your builds like this:
 You can get access your apps like this:
 
     Rhohub::App.list()
-	=> [{:id => 2, :git_repo_url => git@git.rhohub.com:username/somename-rhodes.git},{:id => 4, :git_repo_url => git@git.rhohub.com:username/somename-rhodes.git}]
+	=> [{"id" : 2, "git_repo_url" : git@git.rhohub.com:username/somename-rhodes.git},{"id" : 4, "git_repo_url" : "git@git.rhohub.com:username/somename-rhodes.git"}]
 	
-	Rhohub::App.create({:name => "somename",:app_type = "rhodes"})
-	=> {'id'=>4, :git_repot_url => git@git.rhohub.com:username/somename-rhodes.git}
+	Rhohub::App.create({:name => "froggy"})
+	=>{"rhodes_id":338,"rhodes_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhodes.git","rhosync_id":337,"rhosync_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhosync.git"}
 	
 	Rhohub::App.delete({:id => 2})
-	=> status => 201
+	=> {:text => true}
 	
     Rhohub::App.show({:id => 2})	
-	=> {:id => 2, :status => 'complete'}
+	=>  {"id":337,"status":"queued","git_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhosync.git"}
 
 
 ##Meta
