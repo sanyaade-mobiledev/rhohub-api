@@ -14,10 +14,6 @@ module BuildAPI
     set :views,   BuildAPI::root_path("views")
     set :public_folder,  BuildAPI::root_path("../public")
     set :static, true
-   
-    helpers do
-      include ServerHelper
-    end
   
     get '/' do
       @tab = 1
@@ -109,6 +105,12 @@ module BuildAPI
        app_id = params['app_id']
        id     = params['id']
        resp   = Rhohub::Build.delete({:app_id => app_id, :id => id})
+       content_type :json
+       { :resp => resp }.to_json
+     end
+     
+     get "/platforms" do
+       resp = Rhohub::Build.platforms()
        content_type :json
        { :resp => resp }.to_json
      end

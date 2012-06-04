@@ -16,6 +16,7 @@ class SpecHelpers
     stub_request(:get, Rhohub.resource_url({:app_id => 4, :id => 2},'builds')).to_return({:body => [{:id=> 4,:status => 'complete'}].to_json})
     stub_request(:delete, Rhohub.resource_url({:app_id => 4,:id => 2},'builds')).to_return({:body => [{:text => true}].to_json})
     stub_request(:post, Rhohub.resource_url({:app_id => 4},'builds')).to_return({:body => [{:id => 4, :status => 'pending'}].to_json})
+    stub_request(:get, Rhohub.resource_url({},'platforms')).to_return({:body => [{"wm-6.5"=>"device:wm:production-6.5"}].to_json})
   end
   
   def stub_app_methods

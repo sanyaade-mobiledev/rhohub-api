@@ -206,6 +206,24 @@ function listbuild(){
 		  }
 		});
 }
+
+function platformbuild(){
+	start_request("platform-build-submit", "platform-build-status");
+	$.ajax({
+		  type: 'GET',
+		  url: '/platforms',
+		  dataType: 'json',
+		  success: function(response){
+			success_request("platform-build-submit", "platform-build-status");
+			$('#build-platform-result').text("Response=> " + response.resp);
+		  },
+		  error: function(resp){
+			error_request("platform-build-submit", "platform-build-status");
+			r = JSON.parse(resp.responseText);
+			$('#build-platform-result').text("Response=> " + r.text);
+		  }
+		});
+}
 // private functions
 function start_request(submit_name, status_name){
 	$("#"+ submit_name).attr("disabled","disabled");

@@ -36,4 +36,10 @@ class Rhohub::Build < Rhohub::Base
       super(options,'builds')
     end
   end
+  
+  def self.platforms
+    catch_all do
+      super({},'platforms')
+    end
+  end
 end

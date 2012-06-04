@@ -26,5 +26,10 @@ describe Rhohub::Build do
       Rhohub::Build.delete({:app_id => 4, :id => 2})
       WebMock.should have_requested(:delete, Rhohub.resource_url({:app_id => 4, :id => 2},'builds'))
     end
+    
+    it "should make a platform request to platforms build" do
+      Rhohub::Build.platforms
+      WebMock.should have_requested(:get, Rhohub.resource_url({},'platforms'))
+    end
   
 end

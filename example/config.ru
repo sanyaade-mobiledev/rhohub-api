@@ -10,6 +10,4 @@ require './app/server'
 
 require '../lib/rhohub.rb'
 
-logger = File.new("log/sinatra.log", "a")
-
 run BuildAPI::Server.new
