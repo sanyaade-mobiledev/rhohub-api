@@ -5,7 +5,7 @@ class Rhohub::Base
       raise Exception.new "you need to enter an api_token first ex:ENV['api_token']=sometoken" unless Rhohub.token
       yield
     rescue Exception => e
-      puts "#{e.message}\n#{e.backtrace}"
+      #puts "#{e.message}\n#{e.backtrace}"
       throw :halt, [503, {:text => "Unable to complete request: #{e.message}"}.to_json]
     end
   end

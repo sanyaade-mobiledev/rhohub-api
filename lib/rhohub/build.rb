@@ -2,7 +2,6 @@ class Rhohub::Build < Rhohub::Base
   
   def self.create(options,data)
     catch_all do
-      puts "options is #{options}"
       raise Exception.new "missing target_device" unless data['target_device'] 
       raise Exception.new "missing version_tag" unless data['version_tag'] 
       raise Exception.new "missing rhodes_version"  unless data['rhodes_version'] 

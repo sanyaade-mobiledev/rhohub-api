@@ -18,7 +18,6 @@ module Rhohub
     
     def self.resource_url(options = {},resource)
       base_url = url
-      puts "base url is #{base_url}"
       if resource == 'apps'
         base_url += "/apps" if options.empty? #POST, INDEX
         base_url +=  "/apps/#{options[:app_id]}" if options.has_key?(:app_id) # DELETE, SHOW
