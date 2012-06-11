@@ -50,6 +50,9 @@ You have two classes that you can work with: `Rhohub::Build` and `Rhohub::App`
 
 You can access your builds like this:
 
+    Rhohub::Build.platforms()
+    =>	[{"wm-6.5":"device:wm:production-6.5"},{"android-1.6":"device:android:production-1.6"},{"android-2.1":"device:android:production-2.1"},{"android-2.2":"device:android:production-2.2"},{"android-2.3.3":"device:android:production-2.3.3"},{"android-3.0":"device:android:production-3.0"},{"android-3.1":"device:android:production-3.1"},{"android-3.2":"device:android:production-3.2"},{"android-4.0":"device:android:production-4.0"},{"apple-development":"device:apple:production-development"},{"apple-distribution":"device:apple:production-distribution"},{"bb-4.6":"device:bb:production-4.6"},{"bb-4.7":"device:bb:production-4.7"},{"bb-5.0":"device:bb:production-5.0"},{"bb-6.0":"device:bb:production-6.0"}]
+
 	Rhohub::Build.list({:app_id => 2})
 	=> [{"id" : 2,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'},{"id" : 4,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'}]
 	
@@ -78,6 +81,12 @@ You can access your apps like this:
 	
     Rhohub::App.show({:id => 2})	
 	=>  {"id":337,"status":"queued","git_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhosync.git"}
+	
+##Build States
+
+A build can be in the following states:
+
+	"queued","started","completed","failed"
 
 ##Errors
 
