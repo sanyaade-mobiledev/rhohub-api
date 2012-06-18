@@ -71,7 +71,7 @@ You can access your builds like this:
 You can access your apps like this:
 
     Rhohub::App.list()
-	=> [{"id" : 2, "git_repo_url" : git@git.rhohub.com:username/somename-rhodes.git},{"id" : 4, "git_repo_url" : "git@git.rhohub.com:username/somename-rhodes.git"}]
+	=> [{"id" : 2, "git_repo_url" : git@git.rhohub.com:username/somename-rhodes.git, "status":"completed","project_name":"testp2","app_type":"rhodes"},{"id" : 4, "git_repo_url" : "git@git.rhohub.com:username/somename-rhosync.git", "status":"completed","project_name":"testp","app_type":"rhosync"}]
 	
 	Rhohub::App.create({:name => "froggy"})
 	=>{"rhodes_id":338,"rhodes_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhodes.git","rhosync_id":337,"rhosync_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhosync.git"}
