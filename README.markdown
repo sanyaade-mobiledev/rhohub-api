@@ -56,7 +56,8 @@ You can access your builds like this:
 	Rhohub::Build.list({:app_id => 2})
 	=> [{"id" : 2,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'},{"id" : 4,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'}]
 	
-	Rhohub::Build.create({:app_id => 2},{:target_device => "device:bb:production-5.2", :version_tag => "master", :rhodes_version => "master"})
+	Rhohub::Build.create({:app_id => app_id},{:build => {'target_device' => target_device, 'version_tag' => version_tag,
+                                                          'rhodes_version' => rhodes_version}}.to_json)
 	=> {"id" : 2, "download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'}
 	
 	Rhohub::Build.delete({:app_id => 2, :id => 3})
