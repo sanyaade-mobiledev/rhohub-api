@@ -74,7 +74,7 @@ You can access your apps like this:
     Rhohub::App.list()
 	=> [{"id" : 2, "git_repo_url" : git@git.rhohub.com:username/somename-rhodes.git, "status":"completed","project_name":"testp2","app_type":"rhodes"},{"id" : 4, "git_repo_url" : "git@git.rhohub.com:username/somename-rhosync.git", "status":"completed","project_name":"testp","app_type":"rhosync"}]
 	
-	* app_type is optional, rhodes app will default if app_type is not passed
+	**app_type is optional, rhodes app will default if app_type is not passed
 	Rhohub::App.create({:app => {:name => 'froggy', :app_type => 'rhodes'}})
 	=>{"rhodes_id":338,"rhodes_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhodes.git","project_name":"froggyAPIce4de31bcecb4dc492161b54d2989521"}
 	
