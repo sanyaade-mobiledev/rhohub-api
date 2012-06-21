@@ -48,8 +48,9 @@ module BuildAPI
      end
 
      post "/create_app" do
-       name = params['id']
-       resp = Rhohub::App.create({:app => {:name => name}}.to_json)
+       name     = params['id']
+       app_type = params['app_type']
+       resp = Rhohub::App.create({:app => {:name => name, :app_type => app_type}})
        content_type :json
        { :resp => resp }.to_json
      end
@@ -81,7 +82,7 @@ module BuildAPI
        rhodes_version = params['rhodesVersion']
        
        resp           = Rhohub::Build.create({:app_id => app_id},{:build => {'target_device' => target_device, 'version_tag' => version_tag,
-                                                                  'rhodes_version' => rhodes_version}}.to_json)
+                                                                  'rhodes_version' => rhodes_version}})
        content_type :json
        { :resp => resp }.to_json
      end

@@ -38,12 +38,13 @@ function setToken(){
 // app functions ----------------------------------
 
 function createApp(){
-	var name = $('#app-name').val();
+	var name     = $('#app-name').val();
+	var app_type = $('input[name=group1]:checked', '#appcreateform').val();
 	start_request("create-app-submit", "create-app-status");
 	$.ajax({
 		  type: 'POST',
 		  url: '/create_app',
-		  data: {id : name},
+		  data: {id : name, app_type : app_type},
 		  dataType: 'json',
 		  success: function(response){
 			success_request("create-app-submit", "create-app-status");

@@ -1,7 +1,11 @@
 <h2>Rhohub::App.create</h2>
 <div class="row well">
-	<form class="well form-inline">
-		<label style='padding-right:10px' class='span5'>Rhohub::App.create({:app =>{:name => ?}})</label>
+	<form id='appcreateform' class="well form-inline">
+		<label style='padding-right:10px' class='span3'>Rhohub::App.create({:app =>{:name => ?}})</label>
+		<div class='span2'>
+			<input type="radio" name="group2" value="rhodes" checked> rhodes
+			<input type="radio" name="group2" value="rhosync"> rhosync
+		</div>
 		<input id='app-name' type="text" class="span3" placeholder="Enter App Name">
 		<button id='create-app-submit' type="submit" onclick="createApp();return false;" class="btn btn-primary">post</button><div class='create-app-status' style='display:inline;margin-left:10px;visibility:hidden'><span class=""></span></div>
 	</form>

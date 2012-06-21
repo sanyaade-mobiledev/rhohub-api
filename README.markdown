@@ -57,7 +57,7 @@ You can access your builds like this:
 	=> [{"id" : 2,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'},{"id" : 4,"download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'}]
 	
 	Rhohub::Build.create({:app_id => app_id},{:build => {'target_device' => target_device, 'version_tag' => version_tag,
-                                                          'rhodes_version' => rhodes_version}}.to_json)
+                                                          'rhodes_version' => rhodes_version}})
 	=> {"id" : 2, "download_link" : "https://s3.amazonaws.com/bucket/uuid.zip", "status" : 'queued'}
 	
 	Rhohub::Build.delete({:app_id => 2, :id => 3})
@@ -74,7 +74,8 @@ You can access your apps like this:
     Rhohub::App.list()
 	=> [{"id" : 2, "git_repo_url" : git@git.rhohub.com:username/somename-rhodes.git, "status":"completed","project_name":"testp2","app_type":"rhodes"},{"id" : 4, "git_repo_url" : "git@git.rhohub.com:username/somename-rhosync.git", "status":"completed","project_name":"testp","app_type":"rhosync"}]
 	
-	Rhohub::App.create({:app => {:name => name}}.to_json)
+	* app_type is optional, rhodes app will default if app_type is not passed
+	Rhohub::App.create({:app => {:name => name, :app_type => app_type}})
 	=>{"rhodes_id":338,"rhodes_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhodes.git","rhosync_id":337,"rhosync_repo_url":"git@git-staging.rhohub.com:username/froggyAPIce4de31bcecb4dc492161b54d2989521-rhosync.git"}
 	
 	Rhohub::App.delete({:id => 2})

@@ -11,7 +11,7 @@ class Rhohub::Base
   end
    
   def self.create(options,data,resource)
-    resp = RestClient.post Rhohub.resource_url(options,resource), data, {:AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
+    resp = RestClient.post Rhohub.resource_url(options,resource), data.to_json, {:AUTHORIZATION => Rhohub.token, :content_type => :json, :accept => :json}
     resp.body
   end
   
