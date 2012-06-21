@@ -2,7 +2,6 @@ class Rhohub::App < Rhohub::Base
      
   def self.create(data)
     catch_all do
-      puts data
       raise Exception.new "name must be passed to create ex: {app=>{:name => appname}}" unless data[:app][:name]
       super({},data,"apps")
     end
