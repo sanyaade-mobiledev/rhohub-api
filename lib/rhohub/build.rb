@@ -2,9 +2,9 @@ class Rhohub::Build < Rhohub::Base
   
   def self.create(options,data)
     catch_all do
-      raise Exception.new "missing target_device" unless data['target_device'] 
-      raise Exception.new "missing version_tag" unless data['version_tag'] 
-      raise Exception.new "missing rhodes_version"  unless data['rhodes_version'] 
+      raise Exception.new "missing target_device" unless data[:build]['target_device'] 
+      raise Exception.new "missing version_tag" unless data[:build]['version_tag'] 
+      raise Exception.new "missing rhodes_version"  unless data[:build]['rhodes_version'] 
       raise Exception.new "missing app_id" unless options[:app_id]
       super(options,data,'builds')
     end

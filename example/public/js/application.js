@@ -39,7 +39,7 @@ function setToken(){
 
 function createApp(){
 	var name     = $('#app-name').val();
-	var app_type = $('input[name=group1]:checked', '#appcreateform').val();
+	var app_type = $('input[name=group2]:checked', '#appcreateform').val();
 	start_request("create-app-submit", "create-app-status");
 	$.ajax({
 		  type: 'POST',
