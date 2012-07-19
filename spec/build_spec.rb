@@ -18,7 +18,7 @@ describe Rhohub::Build do
     end
   
     it "should make a POST request to create build" do
-      Rhohub::Build.create({:app_id => 4},{'target_device'=>"Android", 'version_tag' => 'master', 'rhodes_version' => 'master' })
+      Rhohub::Build.create({:app_id => 4},{:build=>{'target_device'=>"Android", 'version_tag' => 'master', 'rhodes_version' => 'master' }})
       WebMock.should have_requested(:post, Rhohub.resource_url({:app_id => 4},'builds'))
     end
   
