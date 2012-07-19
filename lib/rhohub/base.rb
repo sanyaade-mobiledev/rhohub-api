@@ -6,7 +6,8 @@ class Rhohub::Base
       yield
     rescue Exception => e
       #puts "#{e.message}\n#{e.backtrace}"
-      throw :halt, [503, {:text => "Unable to complete request: #{e.message}"}.to_json]
+      #throw :halt, [503, {:text => "Unable to complete request: #{e.message}"}.to_json]
+      raise Exception.new "#{e.message}\n#{e.backtrace}"
     end
   end
    
